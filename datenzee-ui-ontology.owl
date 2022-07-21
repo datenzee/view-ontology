@@ -1,24 +1,24 @@
-@prefix : <http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#> .
+@prefix : <http://purl.org/datenzee/ui-ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology> .
+@base <http://purl.org/datenzee/ui-ontology> .
 
-<http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology> rdf:type owl:Ontology .
+<http://purl.org/datenzee/ui-ontology> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#containerContains
+###  http://purl.org/datenzee/ui-ontology#containerContains
 :containerContains rdf:type owl:ObjectProperty ;
                    rdfs:domain :Container ;
                    rdfs:range :ContainerList .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#containerListFirst
+###  http://purl.org/datenzee/ui-ontology#containerListFirst
 :containerListFirst rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdf:type owl:FunctionalProperty ;
@@ -26,32 +26,32 @@
                     rdfs:range :Component .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#containerListRest
+###  http://purl.org/datenzee/ui-ontology#containerListRest
 :containerListRest rdf:type owl:ObjectProperty ,
                             owl:FunctionalProperty ;
                    rdfs:domain :ContainerList ;
                    rdfs:range :ContainerList .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#iterativeContainerContent
+###  http://purl.org/datenzee/ui-ontology#iterativeContainerContent
 :iterativeContainerContent rdf:type owl:ObjectProperty ;
                            rdfs:domain :IterativeContainer ;
                            rdfs:range :Container .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#iterativeContainerPredicate
+###  http://purl.org/datenzee/ui-ontology#iterativeContainerPredicate
 :iterativeContainerPredicate rdf:type owl:ObjectProperty ;
                              rdfs:domain :IterativeContainer ;
                              rdfs:range rdf:Property .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#rootComponent
+###  http://purl.org/datenzee/ui-ontology#rootComponent
 :rootComponent rdf:type owl:ObjectProperty ;
                rdfs:domain :App ;
                rdfs:range :Component .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#titleComponentPredicate
+###  http://purl.org/datenzee/ui-ontology#titleComponentPredicate
 :titleComponentPredicate rdf:type owl:ObjectProperty ;
                          rdfs:domain :TitleComponent ;
                          rdfs:range rdf:Property .
@@ -61,7 +61,7 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#plainTextComponentContent
+###  http://purl.org/datenzee/ui-ontology#plainTextComponentContent
 :plainTextComponentContent rdf:type owl:DatatypeProperty ;
                            rdfs:domain :PlainTextComponent ;
                            rdfs:range xsd:string .
@@ -71,45 +71,45 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#App
+###  http://purl.org/datenzee/ui-ontology#App
 :App rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#Component
+###  http://purl.org/datenzee/ui-ontology#Component
 :Component rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#Container
+###  http://purl.org/datenzee/ui-ontology#Container
 :Container rdf:type owl:Class ;
            rdfs:subClassOf :Component .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContainerList
+###  http://purl.org/datenzee/ui-ontology#ContainerList
 :ContainerList rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#HeadingComponent
+###  http://purl.org/datenzee/ui-ontology#HeadingComponent
 :HeadingComponent rdf:type owl:Class ;
                   rdfs:subClassOf :PlainTextComponent .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#IterativeContainer
+###  http://purl.org/datenzee/ui-ontology#IterativeContainer
 :IterativeContainer rdf:type owl:Class ;
                     rdfs:subClassOf :Component ;
                     owl:disjointWith :TitleComponent .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ParagraphComponent
+###  http://purl.org/datenzee/ui-ontology#ParagraphComponent
 :ParagraphComponent rdf:type owl:Class ;
                     rdfs:subClassOf :PlainTextComponent .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#PlainTextComponent
+###  http://purl.org/datenzee/ui-ontology#PlainTextComponent
 :PlainTextComponent rdf:type owl:Class ;
                     rdfs:subClassOf :Component .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#TitleComponent
+###  http://purl.org/datenzee/ui-ontology#TitleComponent
 :TitleComponent rdf:type owl:Class ;
                 rdfs:subClassOf :Component .
 
@@ -126,95 +126,95 @@ rdf:Property rdf:type owl:Class .
 <http://purl.org/dc/terms/title> rdf:type owl:NamedIndividual .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorContainer
+###  http://purl.org/datenzee/ui-ontology#ContributorContainer
 :ContributorContainer rdf:type owl:NamedIndividual ,
                                :Container ;
                       :containerContains :ContributorContainerList1Title .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorContainerList1Title
+###  http://purl.org/datenzee/ui-ontology#ContributorContainerList1Title
 :ContributorContainerList1Title rdf:type owl:NamedIndividual ,
                                          :ContainerList ;
                                 :containerListFirst :ContributorTitleComponent .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorTitleComponent
+###  http://purl.org/datenzee/ui-ontology#ContributorTitleComponent
 :ContributorTitleComponent rdf:type owl:NamedIndividual ,
                                     :TitleComponent ;
                            :titleComponentPredicate <http://xmlns.com/foaf/0.1/name> .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorsContainer
+###  http://purl.org/datenzee/ui-ontology#ContributorsContainer
 :ContributorsContainer rdf:type owl:NamedIndividual ,
                                 :Container ;
                        :containerContains :ContributorsContainerList1Heading .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorsContainerList1Heading
+###  http://purl.org/datenzee/ui-ontology#ContributorsContainerList1Heading
 :ContributorsContainerList1Heading rdf:type owl:NamedIndividual ,
                                             :ContainerList ;
                                    :containerListFirst :ContributorsHeading ;
                                    :containerListRest :ContributorsContainerList2Paragraph .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorsContainerList2Paragraph
+###  http://purl.org/datenzee/ui-ontology#ContributorsContainerList2Paragraph
 :ContributorsContainerList2Paragraph rdf:type owl:NamedIndividual ,
                                               :ContainerList ;
                                      :containerListFirst :ContributorsParagraph ;
                                      :containerListRest :ContributorsContainerList3IterativeContainer .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorsContainerList3IterativeContainer
+###  http://purl.org/datenzee/ui-ontology#ContributorsContainerList3IterativeContainer
 :ContributorsContainerList3IterativeContainer rdf:type owl:NamedIndividual ,
                                                        :ContainerList ;
                                               :containerListFirst :ContributorsIterativeContainer .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorsHeading
+###  http://purl.org/datenzee/ui-ontology#ContributorsHeading
 :ContributorsHeading rdf:type owl:NamedIndividual ,
                               :HeadingComponent ;
                      :plainTextComponentContent "Contributors"^^xsd:string .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorsIterativeContainer
+###  http://purl.org/datenzee/ui-ontology#ContributorsIterativeContainer
 :ContributorsIterativeContainer rdf:type owl:NamedIndividual ,
                                          :IterativeContainer ;
                                 :iterativeContainerContent :ContributorContainer ;
                                 :iterativeContainerPredicate <https://w3id.org/dcso/ns/core#hasContributor> .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#ContributorsParagraph
+###  http://purl.org/datenzee/ui-ontology#ContributorsParagraph
 :ContributorsParagraph rdf:type owl:NamedIndividual ,
                                 :ParagraphComponent ;
                        :plainTextComponentContent "This section is about contributors."^^xsd:string .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#DMPApp
+###  http://purl.org/datenzee/ui-ontology#DMPApp
 :DMPApp rdf:type owl:NamedIndividual ,
                  :App ;
         :rootComponent :DMPContainer .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#DMPContainer
+###  http://purl.org/datenzee/ui-ontology#DMPContainer
 :DMPContainer rdf:type owl:NamedIndividual ,
                        :Container ;
               :containerContains :DMPContainerList1Title .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#DMPContainerList1Title
+###  http://purl.org/datenzee/ui-ontology#DMPContainerList1Title
 :DMPContainerList1Title rdf:type owl:NamedIndividual ,
                                  :ContainerList ;
                         :containerListFirst :DMPTitleComponent ;
                         :containerListRest :DMPContainerList2Contributors .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#DMPContainerList2Contributors
+###  http://purl.org/datenzee/ui-ontology#DMPContainerList2Contributors
 :DMPContainerList2Contributors rdf:type owl:NamedIndividual ,
                                         :ContainerList ;
                                :containerListFirst :ContributorsContainer .
 
 
-###  http://www.semanticweb.org/janslifka/ontologies/2022/2/datenzee-ui-ontology#DMPTitleComponent
+###  http://purl.org/datenzee/ui-ontology#DMPTitleComponent
 :DMPTitleComponent rdf:type owl:NamedIndividual ,
                             :TitleComponent ;
                    :titleComponentPredicate <http://purl.org/dc/terms/title> .
