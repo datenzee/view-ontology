@@ -33,38 +33,51 @@
                    rdfs:range :ContainerList .
 
 
+###  http://purl.org/datenzee/ui-ontology#contentComponentContent
+:contentComponentContent rdf:type owl:ObjectProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain :ContentComponent ;
+                         rdfs:range :TextContent ;
+                         owl:propertyDisjointWith :contentComponentPredicate .
+
+
+###  http://purl.org/datenzee/ui-ontology#contentComponentPredicate
+:contentComponentPredicate rdf:type owl:ObjectProperty ,
+                                    owl:FunctionalProperty ;
+                           rdfs:domain :ContentComponent ;
+                           rdfs:range rdf:Property .
+
+
 ###  http://purl.org/datenzee/ui-ontology#iterativeContainerContent
-:iterativeContainerContent rdf:type owl:ObjectProperty ;
+:iterativeContainerContent rdf:type owl:ObjectProperty ,
+                                    owl:FunctionalProperty ;
                            rdfs:domain :IterativeContainer ;
                            rdfs:range :Container .
 
 
 ###  http://purl.org/datenzee/ui-ontology#iterativeContainerPredicate
-:iterativeContainerPredicate rdf:type owl:ObjectProperty ;
+:iterativeContainerPredicate rdf:type owl:ObjectProperty ,
+                                      owl:FunctionalProperty ;
                              rdfs:domain :IterativeContainer ;
                              rdfs:range rdf:Property .
 
 
 ###  http://purl.org/datenzee/ui-ontology#rootComponent
-:rootComponent rdf:type owl:ObjectProperty ;
+:rootComponent rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
                rdfs:domain :App ;
                rdfs:range :Component .
-
-
-###  http://purl.org/datenzee/ui-ontology#titleComponentPredicate
-:titleComponentPredicate rdf:type owl:ObjectProperty ;
-                         rdfs:domain :TitleComponent ;
-                         rdfs:range rdf:Property .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://purl.org/datenzee/ui-ontology#plainTextComponentContent
-:plainTextComponentContent rdf:type owl:DatatypeProperty ;
-                           rdfs:domain :PlainTextComponent ;
-                           rdfs:range xsd:string .
+###  http://purl.org/datenzee/ui-ontology#textContentValue
+:textContentValue rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain :TextContent ;
+                       rdfs:range xsd:string .
 
 
 #################################################################
@@ -88,144 +101,32 @@
 :ContainerList rdf:type owl:Class .
 
 
+###  http://purl.org/datenzee/ui-ontology#ContentComponent
+:ContentComponent rdf:type owl:Class ;
+                  rdfs:subClassOf :Component .
+
+
 ###  http://purl.org/datenzee/ui-ontology#HeadingComponent
 :HeadingComponent rdf:type owl:Class ;
-                  rdfs:subClassOf :PlainTextComponent .
+                  rdfs:subClassOf :ContentComponent .
 
 
 ###  http://purl.org/datenzee/ui-ontology#IterativeContainer
 :IterativeContainer rdf:type owl:Class ;
-                    rdfs:subClassOf :Component ;
-                    owl:disjointWith :TitleComponent .
+                    rdfs:subClassOf :Component .
 
 
 ###  http://purl.org/datenzee/ui-ontology#ParagraphComponent
 :ParagraphComponent rdf:type owl:Class ;
-                    rdfs:subClassOf :PlainTextComponent .
+                    rdfs:subClassOf :ContentComponent .
 
 
-###  http://purl.org/datenzee/ui-ontology#PlainTextComponent
-:PlainTextComponent rdf:type owl:Class ;
-                    rdfs:subClassOf :Component .
-
-
-###  http://purl.org/datenzee/ui-ontology#TitleComponent
-:TitleComponent rdf:type owl:Class ;
-                rdfs:subClassOf :Component .
+###  http://purl.org/datenzee/ui-ontology#TextContent
+:TextContent rdf:type owl:Class .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
 rdf:Property rdf:type owl:Class .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> rdf:type owl:NamedIndividual .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorContainer
-:ContributorContainer rdf:type owl:NamedIndividual ,
-                               :Container ;
-                      :containerContains :ContributorContainerList1Title .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorContainerList1Title
-:ContributorContainerList1Title rdf:type owl:NamedIndividual ,
-                                         :ContainerList ;
-                                :containerListFirst :ContributorTitleComponent .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorTitleComponent
-:ContributorTitleComponent rdf:type owl:NamedIndividual ,
-                                    :TitleComponent ;
-                           :titleComponentPredicate <http://xmlns.com/foaf/0.1/name> .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorsContainer
-:ContributorsContainer rdf:type owl:NamedIndividual ,
-                                :Container ;
-                       :containerContains :ContributorsContainerList1Heading .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorsContainerList1Heading
-:ContributorsContainerList1Heading rdf:type owl:NamedIndividual ,
-                                            :ContainerList ;
-                                   :containerListFirst :ContributorsHeading ;
-                                   :containerListRest :ContributorsContainerList2Paragraph .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorsContainerList2Paragraph
-:ContributorsContainerList2Paragraph rdf:type owl:NamedIndividual ,
-                                              :ContainerList ;
-                                     :containerListFirst :ContributorsParagraph ;
-                                     :containerListRest :ContributorsContainerList3IterativeContainer .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorsContainerList3IterativeContainer
-:ContributorsContainerList3IterativeContainer rdf:type owl:NamedIndividual ,
-                                                       :ContainerList ;
-                                              :containerListFirst :ContributorsIterativeContainer .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorsHeading
-:ContributorsHeading rdf:type owl:NamedIndividual ,
-                              :HeadingComponent ;
-                     :plainTextComponentContent "Contributors"^^xsd:string .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorsIterativeContainer
-:ContributorsIterativeContainer rdf:type owl:NamedIndividual ,
-                                         :IterativeContainer ;
-                                :iterativeContainerContent :ContributorContainer ;
-                                :iterativeContainerPredicate <https://w3id.org/dcso/ns/core#hasContributor> .
-
-
-###  http://purl.org/datenzee/ui-ontology#ContributorsParagraph
-:ContributorsParagraph rdf:type owl:NamedIndividual ,
-                                :ParagraphComponent ;
-                       :plainTextComponentContent "This section is about contributors."^^xsd:string .
-
-
-###  http://purl.org/datenzee/ui-ontology#DMPApp
-:DMPApp rdf:type owl:NamedIndividual ,
-                 :App ;
-        :rootComponent :DMPContainer .
-
-
-###  http://purl.org/datenzee/ui-ontology#DMPContainer
-:DMPContainer rdf:type owl:NamedIndividual ,
-                       :Container ;
-              :containerContains :DMPContainerList1Title .
-
-
-###  http://purl.org/datenzee/ui-ontology#DMPContainerList1Title
-:DMPContainerList1Title rdf:type owl:NamedIndividual ,
-                                 :ContainerList ;
-                        :containerListFirst :DMPTitleComponent ;
-                        :containerListRest :DMPContainerList2Contributors .
-
-
-###  http://purl.org/datenzee/ui-ontology#DMPContainerList2Contributors
-:DMPContainerList2Contributors rdf:type owl:NamedIndividual ,
-                                        :ContainerList ;
-                               :containerListFirst :ContributorsContainer .
-
-
-###  http://purl.org/datenzee/ui-ontology#DMPTitleComponent
-:DMPTitleComponent rdf:type owl:NamedIndividual ,
-                            :TitleComponent ;
-                   :titleComponentPredicate <http://purl.org/dc/terms/title> .
-
-
-###  http://xmlns.com/foaf/0.1/name
-<http://xmlns.com/foaf/0.1/name> rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/dcso/ns/core#hasContributor
-<https://w3id.org/dcso/ns/core#hasContributor> rdf:type owl:NamedIndividual .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
