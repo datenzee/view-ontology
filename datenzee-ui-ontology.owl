@@ -113,6 +113,11 @@
                   rdfs:subClassOf :Component .
 
 
+###  http://purl.org/datenzee/ui-ontology#EmphasisComponent
+:EmphasisComponent rdf:type owl:Class ;
+                   rdfs:subClassOf :ContentComponent .
+
+
 ###  http://purl.org/datenzee/ui-ontology#HeadingComponent
 :HeadingComponent rdf:type owl:Class ;
                   rdfs:subClassOf :ContentComponent .
@@ -123,9 +128,14 @@
                     rdfs:subClassOf :Component .
 
 
-###  http://purl.org/datenzee/ui-ontology#ParagraphComponent
-:ParagraphComponent rdf:type owl:Class ;
-                    rdfs:subClassOf :ContentComponent .
+###  http://purl.org/datenzee/ui-ontology#StrongComponent
+:StrongComponent rdf:type owl:Class ;
+                 rdfs:subClassOf :ContentComponent .
+
+
+###  http://purl.org/datenzee/ui-ontology#TextComponent
+:TextComponent rdf:type owl:Class ;
+               rdfs:subClassOf :ContentComponent .
 
 
 ###  http://purl.org/datenzee/ui-ontology#TextContent
