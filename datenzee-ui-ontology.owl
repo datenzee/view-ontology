@@ -12,6 +12,19 @@
 #    Object Properties
 #################################################################
 
+###  http://purl.org/datenzee/ui-ontology#conditionComponentPositiveContent
+:conditionComponentPositiveContent rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain :ConditionComponent ;
+                                   rdfs:range :Container .
+                                   
+###  http://purl.org/datenzee/ui-ontology#conditionComponentNegativeContent
+:conditionComponentNegativeContent rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain :ConditionComponent ;
+                                   rdfs:range :Container .
+
+
 ###  http://purl.org/datenzee/ui-ontology#containerContains
 :containerContains rdf:type owl:ObjectProperty ;
                    rdfs:domain :Container ;
@@ -97,6 +110,11 @@
 
 ###  http://purl.org/datenzee/ui-ontology#Component
 :Component rdf:type owl:Class .
+
+
+###  http://purl.org/datenzee/ui-ontology#ConditionComponent
+:ConditionComponent rdf:type owl:Class ;
+                    rdfs:subClassOf :Component .
 
 
 ###  http://purl.org/datenzee/ui-ontology#Container
