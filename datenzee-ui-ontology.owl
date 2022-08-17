@@ -73,11 +73,18 @@
 #    Data properties
 #################################################################
 
+###  http://purl.org/datenzee/ui-ontology#componentIsBlock
+:componentIsBlock rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :Component ;
+                  rdfs:range xsd:boolean .
+
+
 ###  http://purl.org/datenzee/ui-ontology#textContentValue
 :textContentValue rdf:type owl:DatatypeProperty ,
-                                owl:FunctionalProperty ;
-                       rdfs:domain :TextContent ;
-                       rdfs:range xsd:string .
+                           owl:FunctionalProperty ;
+                  rdfs:domain :TextContent ;
+                  rdfs:range xsd:string .
 
 
 #################################################################
