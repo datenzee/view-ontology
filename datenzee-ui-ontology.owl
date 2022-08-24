@@ -12,17 +12,25 @@
 #    Object Properties
 #################################################################
 
-###  http://purl.org/datenzee/ui-ontology#conditionComponentPositiveContent
-:conditionComponentPositiveContent rdf:type owl:ObjectProperty ,
-                                            owl:FunctionalProperty ;
-                                   rdfs:domain :ConditionComponent ;
-                                   rdfs:range :Container .
-                                   
 ###  http://purl.org/datenzee/ui-ontology#conditionComponentNegativeContent
 :conditionComponentNegativeContent rdf:type owl:ObjectProperty ,
                                             owl:FunctionalProperty ;
                                    rdfs:domain :ConditionComponent ;
                                    rdfs:range :Container .
+
+
+###  http://purl.org/datenzee/ui-ontology#conditionComponentPositiveContent
+:conditionComponentPositiveContent rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain :ConditionComponent ;
+                                   rdfs:range :Container .
+
+
+###  http://purl.org/datenzee/ui-ontology#conditionComponentPredicate
+:conditionComponentPredicate rdf:type owl:ObjectProperty ,
+                                      owl:FunctionalProperty ;
+                             rdfs:domain :ConditionComponent ;
+                             rdfs:range rdf:Property .
 
 
 ###  http://purl.org/datenzee/ui-ontology#containerContains
@@ -91,6 +99,13 @@
                            owl:FunctionalProperty ;
                   rdfs:domain :Component ;
                   rdfs:range xsd:boolean .
+
+
+###  http://purl.org/datenzee/ui-ontology#conditionComponentValue
+:conditionComponentValue rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain :ConditionComponent ;
+                         rdfs:range xsd:string .
 
 
 ###  http://purl.org/datenzee/ui-ontology#textContentValue
