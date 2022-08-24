@@ -90,6 +90,21 @@
                rdfs:range :Component .
 
 
+###  http://purl.org/datenzee/ui-ontology#urlComponentLabelContent
+:urlComponentLabelContent rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :URLComponent ;
+                          rdfs:range :TextContent ;
+                          owl:propertyDisjointWith :urlComponentLabelPredicate .
+
+
+###  http://purl.org/datenzee/ui-ontology#urlComponentLabelPredicate
+:urlComponentLabelPredicate rdf:type owl:ObjectProperty ,
+                                     owl:FunctionalProperty ;
+                            rdfs:domain :URLComponent ;
+                            rdfs:range rdf:Property .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -146,6 +161,21 @@
                   rdfs:subClassOf :Component .
 
 
+###  http://purl.org/datenzee/ui-ontology#DateComponent
+:DateComponent rdf:type owl:Class ;
+               rdfs:subClassOf :ContentComponent .
+
+
+###  http://purl.org/datenzee/ui-ontology#DateTimeComponent
+:DateTimeComponent rdf:type owl:Class ;
+                   rdfs:subClassOf :ContentComponent .
+
+
+###  http://purl.org/datenzee/ui-ontology#EmailComponent
+:EmailComponent rdf:type owl:Class ;
+                rdfs:subClassOf :ContentComponent .
+
+
 ###  http://purl.org/datenzee/ui-ontology#EmphasisComponent
 :EmphasisComponent rdf:type owl:Class ;
                    rdfs:subClassOf :ContentComponent .
@@ -173,6 +203,16 @@
 
 ###  http://purl.org/datenzee/ui-ontology#TextContent
 :TextContent rdf:type owl:Class .
+
+
+###  http://purl.org/datenzee/ui-ontology#TimeComponent
+:TimeComponent rdf:type owl:Class ;
+               rdfs:subClassOf :ContentComponent .
+
+
+###  http://purl.org/datenzee/ui-ontology#URLComponent
+:URLComponent rdf:type owl:Class ;
+              rdfs:subClassOf :ContentComponent .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
