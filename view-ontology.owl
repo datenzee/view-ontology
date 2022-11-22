@@ -1,0 +1,245 @@
+@prefix : <http://purl.org/datenzee/ui-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.org/datenzee/view-ontology> .
+
+<http://purl.org/datenzee/view-ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/datenzee/view-ontology#conditionContainsNegative
+:conditionContainsNegative rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :contains ;
+                           rdf:type owl:FunctionalProperty ,
+                                    owl:AsymmetricProperty ,
+                                    owl:IrreflexiveProperty ;
+                           rdfs:domain :Condition ;
+                           rdfs:range :Tree .
+
+
+###  http://purl.org/datenzee/view-ontology#conditionContainsPositive
+:conditionContainsPositive rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :contains ;
+                           rdf:type owl:FunctionalProperty ,
+                                    owl:AsymmetricProperty ,
+                                    owl:IrreflexiveProperty ;
+                           rdfs:domain :Condition ;
+                           rdfs:range :Tree .
+
+
+###  http://purl.org/datenzee/view-ontology#conditionPredicate
+:conditionPredicate rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ,
+                             owl:AsymmetricProperty ,
+                             owl:IrreflexiveProperty ;
+                    rdfs:domain :Condition ;
+                    rdfs:range rdf:Property .
+
+
+###  http://purl.org/datenzee/view-ontology#contains
+:contains rdf:type owl:ObjectProperty ,
+                   owl:AsymmetricProperty ,
+                   owl:IrreflexiveProperty ;
+          rdfs:domain :Node ;
+          rdfs:range :Tree .
+
+
+###  http://purl.org/datenzee/view-ontology#contentContent
+:contentContent rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ,
+                         owl:AsymmetricProperty ,
+                         owl:IrreflexiveProperty ;
+                rdfs:domain :Content ;
+                rdfs:range :TextContent ;
+                owl:propertyDisjointWith :contentPredicate .
+
+
+###  http://purl.org/datenzee/view-ontology#contentPredicate
+:contentPredicate rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ,
+                           owl:AsymmetricProperty ,
+                           owl:IrreflexiveProperty ;
+                  rdfs:domain :Content ;
+                  rdfs:range rdf:Property .
+
+
+###  http://purl.org/datenzee/view-ontology#dataComponent
+:dataComponent rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ,
+                        owl:AsymmetricProperty ,
+                        owl:IrreflexiveProperty ;
+               rdfs:domain :DataComponentWrapper ;
+               rdfs:range :DataComponent .
+
+
+###  http://purl.org/datenzee/view-ontology#dataComponentPredicate
+:dataComponentPredicate rdf:type owl:ObjectProperty ,
+                                 owl:FunctionalProperty ,
+                                 owl:AsymmetricProperty ,
+                                 owl:IrreflexiveProperty ;
+                        rdfs:domain :DataComponentWrapper ;
+                        rdfs:range rdf:Property .
+
+
+###  http://purl.org/datenzee/view-ontology#iterativeContainerPredicate
+:iterativeContainerPredicate rdf:type owl:ObjectProperty ,
+                                      owl:FunctionalProperty ,
+                                      owl:AsymmetricProperty ,
+                                      owl:IrreflexiveProperty ;
+                             rdfs:domain :IterativeContainer ;
+                             rdfs:range rdf:Property .
+
+
+###  http://purl.org/datenzee/view-ontology#urlLabelContent
+:urlLabelContent rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :contentContent ;
+                 rdf:type owl:FunctionalProperty ,
+                          owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ;
+                 rdfs:domain :URL ;
+                 rdfs:range :TextContent ;
+                 owl:propertyDisjointWith :urlLabelPredicate .
+
+
+###  http://purl.org/datenzee/view-ontology#urlLabelPredicate
+:urlLabelPredicate rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :contentPredicate ;
+                   rdf:type owl:FunctionalProperty ,
+                            owl:AsymmetricProperty ,
+                            owl:IrreflexiveProperty ;
+                   rdfs:domain :URL ;
+                   rdfs:range rdf:Property .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/datenzee/view-ontology#conditionValue
+:conditionValue rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Condition ;
+                rdfs:range rdfs:Literal .
+
+
+###  http://purl.org/datenzee/view-ontology#isBlock
+:isBlock rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Node ;
+         rdfs:range xsd:boolean .
+
+
+###  http://purl.org/datenzee/view-ontology#order
+:order rdf:type owl:DatatypeProperty ,
+                owl:FunctionalProperty ;
+       rdfs:domain :Tree ;
+       rdfs:range xsd:decimal .
+
+
+###  http://purl.org/datenzee/view-ontology#textContentValue
+:textContentValue rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :TextContent ;
+                  rdfs:range rdfs:Literal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/datenzee/view-ontology#Condition
+:Condition rdf:type owl:Class ;
+           rdfs:subClassOf :Node .
+
+
+###  http://purl.org/datenzee/view-ontology#Container
+:Container rdf:type owl:Class ;
+           rdfs:subClassOf :Node .
+
+
+###  http://purl.org/datenzee/view-ontology#Content
+:Content rdf:type owl:Class ;
+         rdfs:subClassOf :Leaf .
+
+
+###  http://purl.org/datenzee/view-ontology#DataComponent
+:DataComponent rdf:type owl:Class .
+
+
+###  http://purl.org/datenzee/view-ontology#DataComponentWrapper
+:DataComponentWrapper rdf:type owl:Class ;
+                      rdfs:subClassOf :Leaf .
+
+
+###  http://purl.org/datenzee/view-ontology#Date
+:Date rdf:type owl:Class ;
+      rdfs:subClassOf :Content .
+
+
+###  http://purl.org/datenzee/view-ontology#DateTime
+:DateTime rdf:type owl:Class ;
+          rdfs:subClassOf :Content .
+
+
+###  http://purl.org/datenzee/view-ontology#Email
+:Email rdf:type owl:Class ;
+       rdfs:subClassOf :Content .
+
+
+###  http://purl.org/datenzee/view-ontology#Emphasis
+:Emphasis rdf:type owl:Class ;
+          rdfs:subClassOf :Node .
+
+
+###  http://purl.org/datenzee/view-ontology#Heading
+:Heading rdf:type owl:Class ;
+         rdfs:subClassOf :Node .
+
+
+###  http://purl.org/datenzee/view-ontology#IterativeContainer
+:IterativeContainer rdf:type owl:Class ;
+                    rdfs:subClassOf :Node .
+
+
+###  http://purl.org/datenzee/view-ontology#Leaf
+:Leaf rdf:type owl:Class ;
+      rdfs:subClassOf :Tree .
+
+
+###  http://purl.org/datenzee/view-ontology#Node
+:Node rdf:type owl:Class ;
+      rdfs:subClassOf :Tree .
+
+
+###  http://purl.org/datenzee/view-ontology#Strong
+:Strong rdf:type owl:Class ;
+        rdfs:subClassOf :Node .
+
+
+###  http://purl.org/datenzee/view-ontology#TextContent
+:TextContent rdf:type owl:Class .
+
+
+###  http://purl.org/datenzee/view-ontology#Time
+:Time rdf:type owl:Class ;
+      rdfs:subClassOf :Content .
+
+
+###  http://purl.org/datenzee/view-ontology#Tree
+:Tree rdf:type owl:Class .
+
+
+###  http://purl.org/datenzee/view-ontology#URL
+:URL rdf:type owl:Class ;
+     rdfs:subClassOf :Content .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdf:Property rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
