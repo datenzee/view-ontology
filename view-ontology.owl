@@ -1,4 +1,4 @@
-@prefix : <http://purl.org/datenzee/ui-ontology#> .
+@prefix : <http://purl.org/datenzee/view-ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -77,6 +77,15 @@
                rdfs:range :DataComponent .
 
 
+###  http://purl.org/datenzee/view-ontology#dataComponentContent
+:dataComponentContent rdf:type owl:ObjectProperty ,
+                               owl:FunctionalProperty ,
+                               owl:AsymmetricProperty ,
+                               owl:IrreflexiveProperty ;
+                      rdfs:domain :DataComponent ;
+                      rdfs:range :Tree .
+
+
 ###  http://purl.org/datenzee/view-ontology#dataComponentPredicate
 :dataComponentPredicate rdf:type owl:ObjectProperty ,
                                  owl:FunctionalProperty ,
@@ -124,6 +133,13 @@
 :conditionValue rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Condition ;
                 rdfs:range rdfs:Literal .
+
+
+###  http://purl.org/datenzee/view-ontology#dataComponentName
+:dataComponentName rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :DataComponent ;
+                   rdfs:range rdfs:Literal .
 
 
 ###  http://purl.org/datenzee/view-ontology#isBlock
